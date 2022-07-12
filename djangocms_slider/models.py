@@ -1,6 +1,5 @@
 import os
 from cms.models import CMSPlugin, Page
-from cms.utils.compat.dj import python_2_unicode_compatible
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -16,7 +15,6 @@ except ImportError:
         return instance.get_media_path(filename)
 
 
-@python_2_unicode_compatible
 class Slide(CMSPlugin):
     """
     A Slide plugin that contains an image and some text.
@@ -55,7 +53,6 @@ class Slide(CMSPlugin):
                 _("You can enter a Link or a Page, but not both."))
 
 
-@python_2_unicode_compatible
 class Slider(CMSPlugin):
     """
     Plugin that can only contain Slides.
