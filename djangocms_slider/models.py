@@ -26,10 +26,15 @@ class Slide(CMSPlugin):
         help_text=_("If present, clicking on image will take user to link."))
 
     page_link = models.ForeignKey(
-        Page, verbose_name=_("page"), null=True,
-        limit_choices_to={'publisher_is_draft': True}, blank=True,
+        Page,
+        verbose_name=_("page"),
+        on_delete=models.CASCADE,
+        null=True,
+        limit_choices_to={'publisher_is_draft': True},
+        blank=True,
         help_text=_("If present, clicking on image will take user to "
-                    "specified page."))
+                    "specified page."),
+    )
 
     caption = models.TextField(
         _("caption"), max_length=255, blank=True, null=True,
